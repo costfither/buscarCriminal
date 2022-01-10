@@ -1,0 +1,52 @@
+<div class="container-uoc">
+  <h2>Post List</h2>
+  <mat-table [dataSource]="profiles">
+    <!-- ID Column -->
+    <ng-container matColumnDef="ID">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.profileID }}</mat-cell>
+    </ng-container>
+
+    <!-- Nom Column -->
+    <ng-container matColumnDef="Nom">
+      <mat-header-cell *matHeaderCellDef>Nom</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
+    </ng-container>
+
+    <!-- Primer Cognom Column -->
+    <ng-container matColumnDef="Primer Cognom">
+      <mat-header-cell *matHeaderCellDef>Primer Cognom</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.surname1 }}</mat-cell>
+    </ng-container>
+
+    <!-- Segon Cognom Column -->
+    <ng-container matColumnDef="Segon Cognom">
+      <mat-header-cell *matHeaderCellDef>Segon Cognom</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.surname2 }}</mat-cell>
+    </ng-container>
+    <!-- Pes Column -->
+    <ng-container matColumnDef="Pes">
+      <mat-header-cell *matHeaderCellDef>Pes</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.weight }}
+      </mat-cell>
+    </ng-container>
+    <!-- Alçada Column -->
+    <ng-container matColumnDef="Alçada">
+      <mat-header-cell *matHeaderCellDef>Alçada</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.height }}
+      </mat-cell>
+    </ng-container>
+    <!-- Edat Column -->
+    <ng-container matColumnDef="Edat">
+      <mat-header-cell *matHeaderCellDef>Edat</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.age }}
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>
