@@ -1,7 +1,27 @@
 <div class="container">
   <h2>Llista perfils</h2>
-  <button (click)="loadProfile()">Actualitzar</button>
-  <input type="search" [(ngModel)]="profileFilter.name" />
+  <section>
+    <button (click)="loadProfile()"><mat-icon>find_replace</mat-icon></button>
+    <button (click)="clear()"><mat-icon>clear</mat-icon></button>
+  </section>
+  <section>
+    <mat-form-field appearance="fill">
+      <mat-label for="nom">Nom:</mat-label>
+      <input matInput type="text" [(ngModel)]="profileFilter.name" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label for="surname1">Primer Cognom:</mat-label>
+      <input matInput type="text" [(ngModel)]="profileFilter.surname1" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label for="surname2">Segon Cognom:</mat-label>
+      <input matInput type="text" [(ngModel)]="profileFilter.surname2" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label for="hairColor">Color del cabell:</mat-label>
+      <input matInput type="text" [(ngModel)]="profileFilter.hairColor" />
+    </mat-form-field>
+  </section>
   <mat-table [dataSource]="filterProfiles">
     <!-- ID Column -->
     <ng-container matColumnDef="ID">
@@ -27,10 +47,10 @@
       <mat-cell *matCellDef="let element">{{ element.surname2 }}</mat-cell>
     </ng-container>
     <!-- Pes Column -->
-    <ng-container matColumnDef="Edat">
-      <mat-header-cell *matHeaderCellDef>Edat</mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        {{ element.age }}
+    <ng-container matColumnDef="Data naixement">
+      <mat-header-cell *matHeaderCellDef>Data naixement</mat-header-cell>
+      <mat-cell type="date" *matCellDef="let element">
+        {{ element.dateBorn | date: "dd-MM-yyyy" }}
       </mat-cell>
     </ng-container>
     <!-- Alçada Column -->
@@ -40,6 +60,20 @@
         {{ element.hairColor }}
       </mat-cell>
     </ng-container>
+    <!-- ACTIONS Column -->
+    <ng-container matColumnDef="ACTIONS">
+      <mat-header-cell *matHeaderCellDef>Accions</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button
+          mat-icon-button
+          color="primary"
+          (click)="viewProfile(element.profileID)"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
   </mat-table>

@@ -15,11 +15,9 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@netlify-builder/deploy:deploy",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/buscarCriminal",
-            "netlifyToken": "seETFR4u3iu57ftqALOn7D4o-38lj_mjV8si2hvgMlc",
-            "siteId": "cb4bae9-08cc-40c7-815c-14a30caec3c6",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -110,14 +108,6 @@
             "production": {
               "devServerTarget": "buscarCriminal:serve:production"
             }
-          }
-        },
-        "deploy": {
-          "builder": "@netlify-builder/deploy:deploy",
-          "options": {
-            "outputPath": "dist/buscarCriminal",
-            "netlifyToken": "seETFR4u3iu57ftqALOn7D4o-38lj_mjV8si2hvgMlc",
-            "siteId": "0cb4bae9-08cc-40c7-815c-14a30caec3c6"
           }
         }
       }

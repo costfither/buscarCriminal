@@ -3,3 +3,12 @@
   margin-left: 20%;
   margin-right: 20%;
 }
+mat-form-field {
+  margin-left: 10px;
+}
+section {
+  margin-top: 10px;
+}
+button {
+  margin: 10px;
+}

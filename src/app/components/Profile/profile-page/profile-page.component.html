@@ -34,25 +34,25 @@
     </section>
     <section>
       <mat-form-field appearance="fill">
-        <mat-label for="surname1">Cicatriu:</mat-label>
+        <mat-label for="scars">Cicatriu:</mat-label>
         <input matInput type="text" [formControl]="scars" />
       </mat-form-field>
     </section>
     <section>
       <mat-form-field appearance="fill">
-        <mat-label for="surname1">Constitució</mat-label>
+        <mat-label for="constitution">Constitució</mat-label>
         <input matInput type="text" [formControl]="constitution" />
       </mat-form-field>
     </section>
     <section>
       <mat-form-field appearance="fill">
-        <mat-label for="publicationDate">Color de la pell: </mat-label>
+        <mat-label for="skinColor">Color de la pell: </mat-label>
         <input matInput type="date" [formControl]="skinColor" />
       </mat-form-field>
     </section>
     <section>
       <mat-form-field appearance="fill">
-        <mat-label for="categories">Operacions:</mat-label>
+        <mat-label for="operation">Operacions:</mat-label>
         <select matSelect multiple [formControl]="operation">
           <option *ngFor="let operar of profile.operation" [ngValue]="operar">
             {{ operar }}

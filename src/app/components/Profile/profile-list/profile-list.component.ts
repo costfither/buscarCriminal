@@ -20,8 +20,9 @@ export class ProfileListComponent implements OnInit {
     'Nom',
     'Primer Cognom',
     'Segon Cognom',
-    'Edat',
+    'Data naixement',
     'Color del cabell',
+    'ACTIONS',
   ];
 
   constructor(
@@ -32,6 +33,7 @@ export class ProfileListComponent implements OnInit {
   ngOnInit(): void {}
 
   loadProfile(): void {
+    console.log(this.profileFilter.name);
     let errorResponse: any;
 
     this.profileService.getAllProfile().subscribe(
@@ -42,21 +44,22 @@ export class ProfileListComponent implements OnInit {
         errorResponse = error.error;
       }
     );
-    this.filterProfiles = this.profiles.filter((profile) => {
-      if (this.profileFilter.name) {
-        if (this.profileFilter.name?.length > 0) {
-          if (profile.name == this.profileFilter.name) return true;
-          return false;
-        } else {
-          return true;
-        }
-      }
-      return true;
+    let filterName = this.profiles.filter((profile) => {
+      if (profile.name?.includes(this.profileFilter.name)) return true;
+      return false;
     });
+    let filterSurname1 = filterName.filter((profile) => {
+      if (profile.surname1?.includes(this.profileFilter.surname1)) return true;
+      return false;
+    });
+    this.filterProfiles = filterSurname1;
     console.log(this.filterProfiles);
   }
 
   viewProfile(profileID: string): void {
     this.router.navigateByUrl('/profiles/' + profileID);
+  }
+  clear() {
+    this.profileFilter = new ProfileDTO('');
   }
 }
