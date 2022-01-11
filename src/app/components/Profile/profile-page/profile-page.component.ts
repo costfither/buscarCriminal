@@ -22,19 +22,19 @@ export class ProfilePageComponent implements OnInit {
   profile: ProfileDTO;
 
   //operation: FormControl; //operacions
-  //hairColor: FormControl; //color de cabell
-  //scars: FormControl; //cicatriu
+  hairColor: FormControl; //color de cabell
+  scars: FormControl; //cicatriu
   //constitution: FormControl; //constitucio
-  //skinColor: FormControl; //color de la pell
+  skinColor: FormControl; //color de la pell
   //bornLocation: FormControl; //lloc de naixement
   name: FormControl; //nom
-  //dateBorn: FormControl; //data de naixement
-  //surname2: FormControl; //segon cognom
-  //eyeColor: FormControl; //color dels ulls
+  dateBorn: FormControl; //data de naixement
+  surname2: FormControl; //segon cognom
+  eyeColor: FormControl; //color dels ulls
   //deaf: FormControl; //sord
   //lackExtremitats: FormControl; //falta de extremitats
   //mute: FormControl; //si es mud
-  //surname1: FormControl; //primer cognom;
+  surname1: FormControl; //primer cognom;
   //age: FormControl; //edat
   //studies: FormControl; //llistat d'estudis
 
@@ -57,9 +57,33 @@ export class ProfilePageComponent implements OnInit {
     this.isUpdateMode = false;
 
     this.name = new FormControl(this.profile.name, [Validators.maxLength(55)]);
+    this.surname1 = new FormControl(this.profile.surname1, [
+      Validators.maxLength(155),
+    ]);
+    this.surname2 = new FormControl(this.profile.surname2, [
+      Validators.maxLength(155),
+    ]);
+    this.hairColor = new FormControl(this.profile.hairColor, [
+      Validators.maxLength(100),
+    ]);
+    this.scars = new FormControl(this.profile.scars, []);
+    this.skinColor = new FormControl(this.profile.skinColor, [
+      Validators.maxLength(100),
+    ]);
+    this.eyeColor = new FormControl(this.profile.eyeColor, [
+      Validators.maxLength(100),
+    ]);
+    this.dateBorn = new FormControl(this.profile.dateBorn, []);
 
     this.profileForm = this.formBuilder.group({
       name: this.name,
+      surname1: this.surname1,
+      surname2: this.surname2,
+      hairColor: this.hairColor,
+      scars: this.scars,
+      skinColor: this.skinColor,
+      eyeColor: this.eyeColor,
+      dateBorn: this.dateBorn,
     });
   }
 

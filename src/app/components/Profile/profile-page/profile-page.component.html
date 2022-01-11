@@ -2,18 +2,94 @@
   <p id="ProfileFeedback"></p>
 </div>
 <div class="container">
-  <h1>Profile form</h1>
+  <h1>Perfil: {{ this.profile.name }} {{ this.profile.surname1 }}</h1>
   <form (ngSubmit)="saveProfile()">
     <section>
       <mat-form-field appearance="fill">
         <mat-label for="name">Nom:</mat-label>
-        <input matInput type="text" [(ngModel)]="this.profile.name" />
+        <input
+          matInput
+          type="text"
+          [formControl]="this.name"
+          [(ngModel)]="this.profile.name"
+        />
       </mat-form-field>
     </section>
     <section>
       <mat-form-field appearance="fill">
         <mat-label for="surname1">Primer cognom:</mat-label>
-        <input matInput type="text" [(ngModel)]="this.profile.surname1" />
+        <input
+          matInput
+          [formControl]="this.surname1"
+          type="text"
+          [(ngModel)]="this.profile.surname1"
+        />
+      </mat-form-field>
+    </section>
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label for="surname2">Segon cognom:</mat-label>
+        <input
+          matInput
+          [formControl]="this.surname2"
+          type="text"
+          [(ngModel)]="this.profile.surname2"
+        />
+      </mat-form-field>
+    </section>
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label for="hairColor">Color del cabell:</mat-label>
+        <input
+          matInput
+          [formControl]="this.hairColor"
+          type="text"
+          [(ngModel)]="this.profile.hairColor"
+        />
+      </mat-form-field>
+    </section>
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label for="scars">Numero de cicatrius:</mat-label>
+        <input
+          matInput
+          [formControl]="this.scars"
+          type="number"
+          [(ngModel)]="this.profile.scars"
+        />
+      </mat-form-field>
+    </section>
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label for="skinColor">Color de la pell:</mat-label>
+        <input
+          matInput
+          [formControl]="this.skinColor"
+          type="text"
+          [(ngModel)]="this.profile.skinColor"
+        />
+      </mat-form-field>
+    </section>
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label for="eyeColor">Color dels ulls:</mat-label>
+        <input
+          matInput
+          [formControl]="this.eyeColor"
+          type="text"
+          [(ngModel)]="this.profile.eyeColor"
+        />
+      </mat-form-field>
+    </section>
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label for="dateBorn">Data de naixement:</mat-label>
+        <input
+          matInput
+          [formControl]="this.dateBorn"
+          type="text"
+          [(ngModel)]="this.profile.dateBorn"
+        />
       </mat-form-field>
     </section>
   </form>
