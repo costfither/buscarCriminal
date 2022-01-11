@@ -31,10 +31,13 @@ export class ProfileService {
     });
   }
 
-  getProfileId(id: string): Observable<ProfileDTO> {
-    return this.http.get<ProfileDTO>(this.link + '?profileID=' + id, {
-      headers: this.httpOptions,
+  getProfileId(id: string): ProfileDTO | undefined {
+    let profile: ProfileDTO | undefined;
+    this.getAllProfile().subscribe((profiles) => {
+      profile = profiles.find((profile) => profile.profileID == id);
     });
+    if (profile) return profile;
+    else return undefined;
   }
 
   createProfile(profile: ProfileDTO): Observable<ProfileDTO> {
