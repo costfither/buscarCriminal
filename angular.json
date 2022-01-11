@@ -15,17 +15,16 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@netlify-builder/deploy:deploy",
           "options": {
             "outputPath": "dist/buscarCriminal",
+            "netlifyToken": "seETFR4u3iu57ftqALOn7D4o-38lj_mjV8si2hvgMlc",
+            "siteId": "cb4bae9-08cc-40c7-815c-14a30caec3c6",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
@@ -93,10 +92,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
@@ -114,6 +110,14 @@
             "production": {
               "devServerTarget": "buscarCriminal:serve:production"
             }
+          }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/buscarCriminal",
+            "netlifyToken": "seETFR4u3iu57ftqALOn7D4o-38lj_mjV8si2hvgMlc",
+            "siteId": "0cb4bae9-08cc-40c7-815c-14a30caec3c6"
           }
         }
       }
