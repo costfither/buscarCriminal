@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, exhaustMap, map } from 'rxjs/operators';
@@ -13,8 +12,7 @@ export class ProfileEffects {
 
   constructor(
     private actions$: Actions,
-    private profileService: ProfileService,
-    private router: Router
+    private profileService: ProfileService
   ) {
     this.responseOK = false;
   }
@@ -123,6 +121,7 @@ export class ProfileEffects {
       exhaustMap(() =>
         this.profileService.getAllProfile().pipe(
           map((profiles) => {
+            console.log(profiles);
             return ProfileAction.getAllProfilesSuccess({
               profiles: profiles,
             });

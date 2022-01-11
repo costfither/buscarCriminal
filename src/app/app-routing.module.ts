@@ -6,8 +6,7 @@ import { ProfilePageComponent } from './components/Profile/profile-page/profile-
 
 const routes: Routes = [
   { path: '', component: ProfileListComponent },
-  { path: 'profile/:id', component: ProfilePageComponent },
-  { path: '**', component: ProfileListComponent },
+  { path: 'profiles/:id', component: ProfilePageComponent },
   { path: 'profile/add', component: AddProfileComponent },
 ];
 

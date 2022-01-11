@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+    "target": "https://japnuaox4h.execute-api.eu-north-1.amazonaws.com/buscaProfile_v1",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}
