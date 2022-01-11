@@ -52,7 +52,16 @@ export class ProfileListComponent implements OnInit {
       if (profile.surname1?.includes(this.profileFilter.surname1)) return true;
       return false;
     });
-    this.filterProfiles = filterSurname1;
+    let filterSurname2 = filterSurname1.filter((profile) => {
+      if (profile.surname2?.includes(this.profileFilter.surname2)) return true;
+      return false;
+    });
+    let filterHairColor = filterSurname2.filter((profile) => {
+      if (profile.hairColor?.includes(this.profileFilter.hairColor))
+        return true;
+      return false;
+    });
+    this.filterProfiles = filterHairColor;
     console.log(this.filterProfiles);
   }
 

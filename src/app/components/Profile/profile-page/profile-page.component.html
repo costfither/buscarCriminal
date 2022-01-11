@@ -3,72 +3,18 @@
 </div>
 <div class="container">
   <h1>Profile form</h1>
-  <form
-    *ngIf="profileForm"
-    [formGroup]="profileForm"
-    (ngSubmit)="saveProfile()"
-  >
+  <form (ngSubmit)="saveProfile()">
     <section>
       <mat-form-field appearance="fill">
         <mat-label for="name">Nom:</mat-label>
-        <input matInput type="text" [formControl]="name" />
+        <input matInput type="text" [(ngModel)]="this.profile.name" />
       </mat-form-field>
     </section>
     <section>
       <mat-form-field appearance="fill">
         <mat-label for="surname1">Primer cognom:</mat-label>
-        <input matInput type="text" [formControl]="surname1" />
+        <input matInput type="text" [(ngModel)]="this.profile.surname1" />
       </mat-form-field>
-    </section>
-    <section>
-      <mat-form-field appearance="fill">
-        <mat-label for="surname2">Segon cognom:</mat-label>
-        <input matInput type="text" [formControl]="surname2" />
-      </mat-form-field>
-    </section>
-    <section>
-      <mat-form-field appearance="fill">
-        <mat-label for="hairColor">Color del cabell:</mat-label>
-        <input matInput type="text" [formControl]="hairColor" />
-      </mat-form-field>
-    </section>
-    <section>
-      <mat-form-field appearance="fill">
-        <mat-label for="scars">Cicatriu:</mat-label>
-        <input matInput type="text" [formControl]="scars" />
-      </mat-form-field>
-    </section>
-    <section>
-      <mat-form-field appearance="fill">
-        <mat-label for="constitution">Constitució</mat-label>
-        <input matInput type="text" [formControl]="constitution" />
-      </mat-form-field>
-    </section>
-    <section>
-      <mat-form-field appearance="fill">
-        <mat-label for="skinColor">Color de la pell: </mat-label>
-        <input matInput type="date" [formControl]="skinColor" />
-      </mat-form-field>
-    </section>
-    <section>
-      <mat-form-field appearance="fill">
-        <mat-label for="operation">Operacions:</mat-label>
-        <select matSelect multiple [formControl]="operation">
-          <option *ngFor="let operar of profile.operation" [ngValue]="operar">
-            {{ operar }}
-          </option>
-        </select>
-      </mat-form-field>
-    </section>
-    <section>
-      <button
-        mat-raised-button
-        color="primary"
-        type="submit"
-        [disabled]="!profileForm.valid"
-      >
-        SAVE
-      </button>
     </section>
   </form>
 </div>

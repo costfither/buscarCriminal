@@ -32,10 +32,9 @@ export class ProfileService {
     });
   }
 
-  getProfileId(id: string): Observable<ProfileDTO[]> {
+  getProfileId(): Observable<ProfileDTO[]> {
     return this.getAllProfile().pipe(
       map((profiles) => {
-        console.log(profiles);
         return profiles;
       })
     );

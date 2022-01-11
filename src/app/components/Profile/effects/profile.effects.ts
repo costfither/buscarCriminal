@@ -49,7 +49,7 @@ export class ProfileEffects {
     this.actions$.pipe(
       ofType(ProfileAction.getProfileById),
       exhaustMap(({ profileId }) =>
-        this.profileService.getProfileId(profileId).pipe(
+        this.profileService.getProfileId().pipe(
           map((profile) => {
             return ProfileAction.getProfileByIdSuccess({
               profile: profile.find(
