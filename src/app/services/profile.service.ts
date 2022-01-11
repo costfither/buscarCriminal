@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { ProfileDTO } from '../components/Profile/models/profile.dto';
 interface deleteResponse {
   affected: number;
@@ -31,13 +32,13 @@ export class ProfileService {
     });
   }
 
-  getProfileId(id: string): ProfileDTO | undefined {
-    let profile: ProfileDTO | undefined;
-    this.getAllProfile().subscribe((profiles) => {
-      profile = profiles.find((profile) => profile.profileID == id);
-    });
-    if (profile) return profile;
-    else return undefined;
+  getProfileId(id: string): Observable<ProfileDTO[]> {
+    return this.getAllProfile().pipe(
+      map((profiles) => {
+        console.log(profiles);
+        return profiles;
+      })
+    );
   }
 
   createProfile(profile: ProfileDTO): Observable<ProfileDTO> {

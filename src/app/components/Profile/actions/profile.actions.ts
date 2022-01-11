@@ -21,7 +21,7 @@ export const getProfileById = createAction(
 );
 export const getProfileByIdSuccess = createAction(
   '[ProfileForm Page] Get profile Success',
-  props<{ profile: ProfileDTO }>()
+  props<{ profile: ProfileDTO | undefined }>()
 );
 export const getProfileByIdFailure = createAction(
   '[ProfileForm Page] Get profile Failure',

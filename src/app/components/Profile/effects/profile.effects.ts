@@ -52,7 +52,9 @@ export class ProfileEffects {
         this.profileService.getProfileId(profileId).pipe(
           map((profile) => {
             return ProfileAction.getProfileByIdSuccess({
-              profile: profile,
+              profile: profile.find(
+                (profile) => profile.profileID == profileId
+              ),
             });
           }),
           catchError((error) => {

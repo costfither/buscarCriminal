@@ -17,7 +17,7 @@ import { ProfileDTO } from '../models/profile.dto';
 
 export interface ProfileState {
   profiles: ProfileDTO[];
-  profile: ProfileDTO;
+  profile: ProfileDTO | undefined;
   loading: boolean;
   loaded: boolean;
   error: any;

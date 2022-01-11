@@ -112,7 +112,7 @@ export class ProfilePageComponent implements OnInit {
     });
 
     this.store.select('profiles').subscribe((profiles) => {
-      this.profile = profiles.profile;
+      if (profiles.profile) this.profile = profiles.profile;
     });
     if (this.profile) {
       console.log('Test');
@@ -168,8 +168,13 @@ export class ProfilePageComponent implements OnInit {
       console.log(this.profileId);
       if (this.profileId) {
         this.profileService.getProfileId(this.profileId).subscribe(
-          (profile: ProfileDTO) => {
-            this.profile = profile;
+          (profiles: ProfileDTO[]) => {
+            let profile = profiles.find(
+              (profile) => profile.profileID == this.profileId
+            );
+            if (profile) {
+              this.profile = profile;
+            }
             console.log('this.profileId');
 
             console.log(this.profileId);
