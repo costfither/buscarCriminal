@@ -21,6 +21,14 @@
       <mat-label for="hairColor">Color del cabell:</mat-label>
       <input matInput type="text" [(ngModel)]="profileFilter.hairColor" />
     </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label for="eyeColor">Color dels ulls:</mat-label>
+      <input matInput type="text" [(ngModel)]="profileFilter.eyeColor" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label for="skinColor">Color de la pell:</mat-label>
+      <input matInput type="text" [(ngModel)]="profileFilter.skinColor" />
+    </mat-form-field>
   </section>
   <mat-table [dataSource]="filterProfiles">
     <!-- ID Column -->

@@ -61,7 +61,17 @@ export class ProfileListComponent implements OnInit {
         return true;
       return false;
     });
-    this.filterProfiles = filterHairColor;
+    let filterEyeColor = filterHairColor.filter((profile) => {
+      if (profile.eyeColor?.includes(this.profileFilter.eyeColor)) return true;
+      return false;
+    });
+    let filterSkinColor = filterEyeColor.filter((profile) => {
+      if (profile.skinColor?.includes(this.profileFilter.skinColor))
+        return true;
+      return false;
+    });
+
+    this.filterProfiles = filterSkinColor;
     console.log(this.filterProfiles);
   }
 
