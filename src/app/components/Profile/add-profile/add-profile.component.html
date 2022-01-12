@@ -1,1 +1,59 @@
-<p>add-profile works!</p>
+<div class="container">
+  <h1>Afegir perfil</h1>
+  <form [formGroup]="addProfileForm" (ngSubmit)="addprofile()">
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label>Nom: </mat-label>
+        <input matInput type="text" [formControl]="name" />
+        <div
+          *ngIf="name.errors && isValidForm != null && !isValidForm"
+          [ngClass]="'error'"
+        >
+          <div *ngIf="name.errors.required">Name is required</div>
+          <div *ngIf="name.errors.minlength">
+            Name must be at least 5 characters long.
+          </div>
+          <div *ngIf="name.errors.maxlength">
+            Name can be max 25 characters long.
+          </div>
+        </div>
+      </mat-form-field>
+    </section>
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label>Primer cognom: </mat-label>
+        <input matInput type="text" [formControl]="surname1" />
+        <div
+          *ngIf="surname1.errors && isValidForm != null && !isValidForm"
+          [ngClass]="'error'"
+        >
+          <div *ngIf="surname1.errors.required">Surname1 is required</div>
+          <div *ngIf="surname1.errors.minlength">
+            Surname1 must be at least 5 characters long.
+          </div>
+          <div *ngIf="surname1.errors.maxlength">
+            Surname1 can be max 25 characters long.
+          </div>
+        </div>
+      </mat-form-field>
+    </section>
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label>Segon cognom: </mat-label>
+        <input matInput type="text" [formControl]="surname2" />
+        <div
+          *ngIf="surname2.errors && isValidForm != null && !isValidForm"
+          [ngClass]="'error'"
+        >
+          <div *ngIf="surname2.errors.minlength">
+            Surname2 must be at least 5 characters long.
+          </div>
+          <div *ngIf="surname2.errors.maxlength">
+            Surname2 can be max 25 characters long.
+          </div>
+        </div>
+      </mat-form-field>
+    </section>
+    <button type="submit" mat-button>Afegir perfil</button>
+  </form>
+</div>

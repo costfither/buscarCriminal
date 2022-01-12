@@ -24,6 +24,7 @@ import { ProfileListComponent } from './components/Profile/profile-list/profile-
 import { ProfilePageComponent } from './components/Profile/profile-page/profile-page.component';
 import { profilesReducer } from './components/Profile/reducer';
 import { FilterProfilePipe } from './pipe/filter-profile.pipe';
+import { HeaderComponent } from './components/Header/header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { FilterProfilePipe } from './pipe/filter-profile.pipe';
     ProfileListComponent,
     AddProfileComponent,
     FilterProfilePipe,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
