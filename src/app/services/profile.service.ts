@@ -41,10 +41,7 @@ export class ProfileService {
   }
 
   createProfile(profile: ProfileDTO): Observable<ProfileDTO> {
-    return this.http.post<ProfileDTO>(this.link, {
-      headers: this.httpOptions,
-      profile,
-    });
+    return this.http.post<ProfileDTO>(this.link, { body: profile });
   }
 
   deleteProfile(profileID: string): Observable<deleteResponse> {

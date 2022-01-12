@@ -18,8 +18,6 @@
           </div>
         </div>
       </mat-form-field>
-    </section>
-    <section>
       <mat-form-field appearance="fill">
         <mat-label>Primer cognom: </mat-label>
         <input matInput type="text" [formControl]="surname1" />
@@ -36,8 +34,6 @@
           </div>
         </div>
       </mat-form-field>
-    </section>
-    <section>
       <mat-form-field appearance="fill">
         <mat-label>Segon cognom: </mat-label>
         <input matInput type="text" [formControl]="surname2" />
@@ -54,6 +50,114 @@
         </div>
       </mat-form-field>
     </section>
-    <button type="submit" mat-button>Afegir perfil</button>
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label>Color del cabell: </mat-label>
+        <input matInput type="text" [formControl]="hairColor" />
+        <div
+          *ngIf="hairColor.errors && isValidForm != null && !isValidForm"
+          [ngClass]="'error'"
+        >
+          <div *ngIf="hairColor.errors.maxlength">
+            HairColor can be max 50 characters long.
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Color de la pell: </mat-label>
+        <input matInput type="text" [formControl]="skinColor" />
+        <div
+          *ngIf="skinColor.errors && isValidForm != null && !isValidForm"
+          [ngClass]="'error'"
+        >
+          <div *ngIf="skinColor.errors.maxlength">
+            Color de la pell can be max 50 characters long.
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Color dels ulls: </mat-label>
+        <input matInput type="text" [formControl]="eyeColor" />
+        <div
+          *ngIf="eyeColor.errors && isValidForm != null && !isValidForm"
+          [ngClass]="'error'"
+        >
+          <div *ngIf="eyeColor.errors.maxlength">
+            eyeColor can be max 100 characters long.
+          </div>
+        </div>
+      </mat-form-field>
+    </section>
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label>Caracteristica etnica: </mat-label>
+        <input matInput type="text" [formControl]="ethnic_characteristics" />
+        <div
+          *ngIf="
+            ethnic_characteristics.errors && isValidForm != null && !isValidForm
+          "
+          [ngClass]="'error'"
+        >
+          <div *ngIf="ethnic_characteristics.errors.maxlength">
+            Caracteristica etnica can be max 100 characters long.
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Numero de cicatrius: </mat-label>
+        <input matInput type="number" [formControl]="scars" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Constitució del cos: </mat-label>
+        <input matInput type="text" [formControl]="constitution" />
+        <div
+          *ngIf="constitution.errors && isValidForm != null && !isValidForm"
+          [ngClass]="'error'"
+        >
+          <div *ngIf="constitution.errors.maxlength">
+            Constitució del cos màxim 100 caracters.
+          </div>
+        </div>
+      </mat-form-field>
+    </section>
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label>Lloc de naixement: </mat-label>
+        <input matInput type="text" [formControl]="bornLocation" />
+        <div
+          *ngIf="bornLocation.errors && isValidForm != null && !isValidForm"
+          [ngClass]="'error'"
+        >
+          <div *ngIf="bornLocation.errors.maxlength">
+            Lloc de naixement can be max 250 characters long.
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Data de naixement: </mat-label>
+        <input matInput type="date" [formControl]="dateBorn" />
+        <div
+          *ngIf="dateBorn.errors && isValidForm != null && !isValidForm"
+          [ngClass]="'error'"
+        >
+          <div *ngIf="dateBorn.errors.maxlength">
+            Data de naixement can be max 100 characters long.
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Numero d'extremitats: </mat-label>
+        <input matInput type="number" [formControl]="lackExtremitats" />
+      </mat-form-field>
+    </section>
+    <section>
+      <label>Sord:<input type="checkbox" [formControl]="deaf" /> </label>
+
+      <label>Mud: <input type="checkbox" [formControl]="mute" /></label>
+    </section>
+
+    <button mat-raised-button color="primary" type="submit">
+      Afegir perfil
+    </button>
   </form>
 </div>
