@@ -21,22 +21,22 @@ import { ProfileDTO } from '../models/profile.dto';
 export class ProfilePageComponent implements OnInit {
   profile: ProfileDTO;
 
-  //operation: FormControl; //operacions
+  name: FormControl;
+  surname1: FormControl;
+  surname2: FormControl;
   hairColor: FormControl; //color de cabell
-  scars: FormControl; //cicatriu
-  //constitution: FormControl; //constitucio
   skinColor: FormControl; //color de la pell
-  //bornLocation: FormControl; //lloc de naixement
-  name: FormControl; //nom
+  ethnic_characteristics: FormControl; // caracteristiques etniques
+  scars: FormControl; //cicatriu
+  constitution: FormControl; //constitucio
+  bornLocation: FormControl; //lloc de naixement
   dateBorn: FormControl; //data de naixement
-  surname2: FormControl; //segon cognom
   eyeColor: FormControl; //color dels ulls
-  //deaf: FormControl; //sord
-  //lackExtremitats: FormControl; //falta de extremitats
-  //mute: FormControl; //si es mud
-  surname1: FormControl; //primer cognom;
-  //age: FormControl; //edat
-  //studies: FormControl; //llistat d'estudis
+  deaf: FormControl; //sord
+  lackExtremitats: FormControl; //falta de extremitats
+  mute: FormControl; //si es mud
+  studies: FormControl; //llistat d'estudis
+  operations: FormControl; //operacions
 
   profileForm: FormGroup;
   isValidForm: boolean | null;
@@ -56,34 +56,64 @@ export class ProfilePageComponent implements OnInit {
     this.profile = new ProfileDTO('');
     this.isUpdateMode = false;
 
-    this.name = new FormControl(this.profile.name, [Validators.maxLength(55)]);
+    this.name = new FormControl(this.profile.name, [
+      Validators.required,
+      Validators.minLength(5),
+      Validators.maxLength(25),
+    ]);
     this.surname1 = new FormControl(this.profile.surname1, [
-      Validators.maxLength(155),
+      Validators.required,
+      Validators.minLength(5),
+      Validators.maxLength(25),
     ]);
     this.surname2 = new FormControl(this.profile.surname2, [
-      Validators.maxLength(155),
+      Validators.minLength(5),
+      Validators.maxLength(25),
     ]);
     this.hairColor = new FormControl(this.profile.hairColor, [
-      Validators.maxLength(100),
+      Validators.maxLength(50),
     ]);
-    this.scars = new FormControl(this.profile.scars, []);
     this.skinColor = new FormControl(this.profile.skinColor, [
-      Validators.maxLength(100),
+      Validators.maxLength(50),
     ]);
     this.eyeColor = new FormControl(this.profile.eyeColor, [
       Validators.maxLength(100),
     ]);
-    this.dateBorn = new FormControl(this.profile.dateBorn, []);
-
+    this.ethnic_characteristics = new FormControl(
+      this.profile.ethnic_characteristics,
+      [Validators.maxLength(100)]
+    );
+    this.scars = new FormControl(this.profile.scars);
+    this.constitution = new FormControl(this.profile.constitution, [
+      Validators.maxLength(100),
+    ]);
+    this.bornLocation = new FormControl(this.profile.bornLocation, [
+      Validators.maxLength(250),
+    ]);
+    this.dateBorn = new FormControl(this.profile.dateBorn, [
+      Validators.maxLength(100),
+    ]);
+    this.deaf = new FormControl(this.profile.deaf);
+    this.lackExtremitats = new FormControl(this.profile.lackExtremitats);
+    this.mute = new FormControl(this.profile.mute);
+    this.studies = new FormControl(this.profile.studies);
+    this.operations = new FormControl(this.profile.operation);
     this.profileForm = this.formBuilder.group({
       name: this.name,
-      surname1: this.surname1,
-      surname2: this.surname2,
+      surname_1: this.surname1,
+      surname_2: this.surname2,
       hairColor: this.hairColor,
-      scars: this.scars,
       skinColor: this.skinColor,
       eyeColor: this.eyeColor,
-      dateBorn: this.dateBorn,
+      ethnic_characteristics: this.ethnic_characteristics,
+      scars: this.scars,
+      constitution: this.constitution,
+      bornLocation: this.bornLocation,
+      deaf: this.deaf,
+      lackExtremitats: this.lackExtremitats,
+      mute: this.mute,
+      studies: this.studies,
+      operations: this.operations,
     });
   }
 
