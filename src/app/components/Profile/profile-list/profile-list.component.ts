@@ -44,35 +44,73 @@ export class ProfileListComponent implements OnInit {
         errorResponse = error.error;
       }
     );
-    let filterName = this.profiles.filter((profile) => {
-      if (profile.name?.includes(this.profileFilter.name)) return true;
-      return false;
-    });
-    let filterSurname1 = filterName.filter((profile) => {
-      if (profile.surname1?.includes(this.profileFilter.surname1)) return true;
-      return false;
-    });
-    let filterSurname2 = filterSurname1.filter((profile) => {
-      if (profile.surname2?.includes(this.profileFilter.surname2)) return true;
-      return false;
-    });
-    let filterHairColor = filterSurname2.filter((profile) => {
-      if (profile.hairColor?.includes(this.profileFilter.hairColor))
+    this.filterProfiles = this.profiles.sort((a, b) =>
+      a.profileID.localeCompare(b.profileID)
+    );
+    let filterName = this.filterProfiles.filter((profile) => {
+      if (this.profileFilter.name != '') {
+        if (profile.name?.includes(this.profileFilter.name)) return true;
+      } else {
         return true;
+      }
       return false;
     });
-    let filterEyeColor = filterHairColor.filter((profile) => {
-      if (profile.eyeColor?.includes(this.profileFilter.eyeColor)) return true;
-      return false;
-    });
-    let filterSkinColor = filterEyeColor.filter((profile) => {
-      if (profile.skinColor?.includes(this.profileFilter.skinColor))
+    this.filterProfiles = filterName;
+    let filterSurname1 = this.filterProfiles.filter((profile) => {
+      if (this.profileFilter.surname1 != '') {
+        if (profile.surname1?.includes(this.profileFilter.surname1))
+          return true;
+      } else {
         return true;
+      }
+      return false;
+    });
+    this.filterProfiles = filterSurname1;
+
+    let filterSurname2 = this.filterProfiles.filter((profile) => {
+      if (this.profileFilter.surname2 != '') {
+        if (profile.surname2?.includes(this.profileFilter.surname2))
+          return true;
+      } else {
+        return true;
+      }
+      return false;
+    });
+    this.filterProfiles = filterSurname2;
+
+    let filterHairColor = this.filterProfiles.filter((profile) => {
+      if (this.profileFilter.hairColor != '') {
+        if (profile.hairColor?.includes(this.profileFilter.hairColor))
+          return true;
+      } else {
+        return true;
+      }
+      return false;
+    });
+    this.filterProfiles = filterHairColor;
+
+    let filterEyeColor = this.filterProfiles.filter((profile) => {
+      if (this.profileFilter.eyeColor != '') {
+        if (profile.eyeColor?.includes(this.profileFilter.eyeColor))
+          return true;
+      } else {
+        return true;
+      }
+      return false;
+    });
+    this.filterProfiles = filterEyeColor;
+
+    let filterSkinColor = this.filterProfiles.filter((profile) => {
+      if (this.profileFilter.skinColor != '') {
+        if (profile.skinColor?.includes(this.profileFilter.skinColor))
+          return true;
+      } else {
+        return true;
+      }
       return false;
     });
 
     this.filterProfiles = filterSkinColor;
-    console.log(this.filterProfiles);
   }
 
   viewProfile(profileID: string): void {
