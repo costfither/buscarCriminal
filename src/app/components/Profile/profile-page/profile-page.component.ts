@@ -100,8 +100,8 @@ export class ProfilePageComponent implements OnInit {
     this.operations = new FormControl(this.profile.operation);
     this.profileForm = this.formBuilder.group({
       name: this.name,
-      surname_1: this.surname1,
-      surname_2: this.surname2,
+      surname1: this.surname1,
+      surname2: this.surname2,
       hairColor: this.hairColor,
       skinColor: this.skinColor,
       eyeColor: this.eyeColor,
@@ -109,6 +109,7 @@ export class ProfilePageComponent implements OnInit {
       scars: this.scars,
       constitution: this.constitution,
       bornLocation: this.bornLocation,
+      dateBorn: this.dateBorn,
       deaf: this.deaf,
       lackExtremitats: this.lackExtremitats,
       mute: this.mute,
