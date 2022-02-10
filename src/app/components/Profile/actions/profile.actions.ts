@@ -40,6 +40,18 @@ export const createProfileFailure = createAction(
   '[ProfileForm Page] Create profile Failure',
   props<{ payload: HttpErrorResponse }>()
 );
+export const editProfile = createAction(
+  '[ProfileForm Page] Edit profile',
+  props<{ profile: ProfileDTO }>()
+);
+export const editProfileSuccess = createAction(
+  '[ProfileForm Page] Edit profile Success',
+  props<{ profile: ProfileDTO }>()
+);
+export const editProfileFailure = createAction(
+  '[ProfileForm Page] Edit profile Failure',
+  props<{ payload: HttpErrorResponse }>()
+);
 
 export const getAllProfiles = createAction(
   '[ProfileList Page] Get profile list'

@@ -117,6 +117,49 @@ export class ProfileEffects {
     { dispatch: false }
   );
 
+  editProfile$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ProfileAction.editProfile),
+      exhaustMap(({ profile }) =>
+        this.profileService.editProfil(profile).pipe(
+          map((profile) => {
+            return ProfileAction.editProfileSuccess({
+              profile: profile,
+            });
+          }),
+          catchError((error) => {
+            console.log('test2');
+            console.log(error);
+            return of(ProfileAction.editProfileFailure({ payload: error }));
+          })
+        )
+      )
+    )
+  );
+
+  editProfileSuccess$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(ProfileAction.editProfileSuccess),
+        map(() => {
+          this.responseOK = true;
+        })
+      ),
+    { dispatch: false }
+  );
+
+  editProfileFailure$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(ProfileAction.editProfileFailure),
+        map((error) => {
+          this.responseOK = false;
+          this.errorResponse = error.payload.error;
+        })
+      ),
+    { dispatch: false }
+  );
+
   getProfiles$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ProfileAction.getAllProfiles),

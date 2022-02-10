@@ -41,6 +41,11 @@ export class ProfileService {
   }
 
   createProfile(profile: ProfileDTO): Observable<ProfileDTO> {
+    return this.http.put<ProfileDTO>(this.link, { body: profile });
+  }
+
+  editProfil(profile: ProfileDTO): Observable<ProfileDTO> {
+    console.log(profile);
     return this.http.post<ProfileDTO>(this.link, { body: profile });
   }
 

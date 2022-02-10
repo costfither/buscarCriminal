@@ -99,6 +99,7 @@ export class ProfilePageComponent implements OnInit {
     this.studies = new FormControl(this.profile.studies);
     this.operations = new FormControl(this.profile.operation);
     this.profileForm = this.formBuilder.group({
+      profileID: this.profileId,
       name: this.name,
       surname1: this.surname1,
       surname2: this.surname2,
@@ -137,8 +138,9 @@ export class ProfilePageComponent implements OnInit {
     }
   }
 
-  private createProfile(): void {
-    this.store.dispatch(ProfileAction.createProfile({ profile: this.profile }));
+  private editProfile(): void {
+    console.log('test1');
+    this.store.dispatch(ProfileAction.editProfile({ profile: this.profile }));
   }
 
   saveProfile(): void {
@@ -146,9 +148,8 @@ export class ProfilePageComponent implements OnInit {
     if (this.profileForm.invalid) {
       return;
     }
-
     this.isValidForm = true;
     this.profile = this.profileForm.value;
-    this.createProfile();
+    this.editProfile();
   }
 }
